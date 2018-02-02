@@ -93,7 +93,10 @@ function [AtA_1 detAtA]= invertIt(AtA)
 	H = -(a(1).*a(5) - a(2).*a(3));
 	K = a(1).*a(4) - a(2).*a(2);
 
-	detAtA = a(1).*A + a(2).*D + a(3).*G;
+    x1 = a(1).*A;
+    x2 =  a(2).*D;
+    x3 = a(3).*G;
+	detAtA = x1 +x2 +x3;
 
 	AtA_1 = cat(3, A, D, G, E, H, K);
 	%AtA_1 = bsxfun(@rdivide, AtA_1, detAtA);
